@@ -7,7 +7,24 @@ import java.util.Map;
 public class CurrentAccount extends BankAccount{
     String tradeLicenseId; //consists of Uppercase English characters only
     private static double minbalance=5000;
-    public CurrentAccount(String name, double balance,String tradeLicenseId) throws Exception {
+
+    public void setTradeLicenseId(String tradeLicenseId) {
+        this.tradeLicenseId = tradeLicenseId;
+    }
+
+    public static void setMinbalance(double minbalance) {
+        CurrentAccount.minbalance = minbalance;
+    }
+
+    public String getTradeLicenseId() {
+        return tradeLicenseId;
+    }
+
+    public static double getMinbalance() {
+        return minbalance;
+    }
+
+    public CurrentAccount(String name, double balance, String tradeLicenseId) throws Exception {
         super(name,balance,minbalance);
         if(super.getBalance()<minbalance){
             throw new RuntimeException("Account cant be created");
